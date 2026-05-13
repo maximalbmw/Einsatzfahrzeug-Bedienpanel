@@ -10,17 +10,21 @@ body {
 
 .panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* etwas breitere Buttons */
-  gap: 14px;                        /* mehr Abstand zwischen Buttons */
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* kleinere Buttons */
+  gap: 10px;
   background: #222;
-  padding: 25px;                    /* etwas mehr Innenabstand */
+  padding: 20px;
   border-radius: 15px;
-  width: 95vw;                      /* nutzt fast die ganze Handybreite */
-  max-width: 700px;                 /* auf Desktop etwas breiter */
-  box-shadow: 0 0 30px #000;        /* schöner Tiefeneffekt */
+  width: 95vw;
+  max-width: 500px; /* Panel insgesamt kleiner */
 }
 
 .btn {
+  font-size: clamp(12px, 3vw, 18px); /* NIE zu groß */
+  line-height: 1.1;
+}
+
+/*.btn {
   height: 18vw;
   max-height: 120px;
   min-height: 70px;
@@ -31,8 +35,8 @@ body {
   text-shadow: 0 0 5px #000;
   cursor: pointer;
   transition: 0.2s;
-  font-size: clamp(14px, 3.5vw, 22px); /* Dynamisch, nie zu groß oder zu klein */
-}
+  font-size: clamp(14px, 3.5vw, 22px);
+}*/
 
 .btn.red { background: #b30000; box-shadow: 0 0 15px #ff0000; }
 .btn.blue { background: #0033cc; box-shadow: 0 0 15px #00aaff; }
