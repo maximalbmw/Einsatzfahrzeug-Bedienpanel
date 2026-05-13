@@ -1,0 +1,16 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="60" fill="#0A0A0F"/>
+  
+  <!-- Panel Grid -->
+  <rect x="80" y="80" width="100" height="100" rx="15" fill="#1A1A22" stroke="#FFFFFF" stroke-width="6"/>
+  <rect x="206" y="80" width="100" height="100" rx="15" fill="#1A1A22" stroke="#3AA0FF" stroke-width="6"/>
+  <rect x="332" y="80" width="100" height="100" rx="15" fill="#1A1A22" stroke="#FFFFFF" stroke-width="6"/>
+
+  <rect x="80" y="206" width="100" height="100" rx="15" fill="#1A1A22" stroke="#3AA0FF" stroke-width="6"/>
+  <rect x="206" y="206" width="100" height="100" rx="15" fill="#1A1A22" stroke="#FFFFFF" stroke-width="6"/>
+  <rect x="332" y="206" width="100" height="100" rx="15" fill="#1A1A22" stroke="#3AA0FF" stroke-width="6"/>
+
+  <rect x="80" y="332" width="100" height="100" rx="15" fill="#1A1A22" stroke="#FFFFFF" stroke-width="6"/>
+  <rect x="206" y="332" width="100" height="100" rx="15" fill="#1A1A22" stroke="#3AA0FF" stroke-width="6"/>
+  <rect x="332" y="332" width="100" height="100" rx="15" fill="#1A1A22" stroke="#FFFFFF" stroke-width="6"/>
+</svg>
