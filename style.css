@@ -1,4 +1,14 @@
 body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body {
   background-color: #111;
   font-family: 'Segoe UI', sans-serif;
   display: flex;
@@ -9,18 +19,23 @@ body {
 
 .panel {
   display: grid;
-  grid-template-columns: repeat(3, 140px);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
   background: #222;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 0 30px #000;
+  width: 95vw;          /* Panel nutzt fast die ganze Handybreite */
+  max-width: 600px;     /* Auf Desktop bleibt es schön kompakt */
 }
 
 .btn {
-  height: 80px;
+  height: 18vw;               /* Skaliert automatisch mit Bildschirmbreite */
+  max-height: 120px;          /* Auf Desktop nicht zu groß */
+  min-height: 70px;           /* Auf Handy immer gut bedienbar */
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
+  font-size: 5vw;             /* Text skaliert mit */
+  max-font-size: 22px;
   font-weight: bold;
   color: white;
   text-shadow: 0 0 5px #000;
