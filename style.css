@@ -42,6 +42,7 @@ body {
 .btn.blue { background: #0033cc; box-shadow: 0 0 15px #00aaff; }
 .btn.white { background: #cccccc; box-shadow: 0 0 15px #ffffff; color: #000; }
 .btn.orange { background: #cc6600; box-shadow: 0 0 15px #ff9900; }
+.btn.red2 { background: #ff1100; box-shadow: 0 0 15px #d43131; }
 
 .btn:active {
   transform: scale(0.95);
