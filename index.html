@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Einsatzfahrzeug Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="panel">
+    <button class="btn red" onclick="playSound('landhorn')">Landhorn</button>
+    <button class="btn red" onclick="playSound('stadthorn')">Stadthorn</button>
+    <button class="btn blue" onclick="playSound('sirene')">Sirene</button>
+    <button class="btn blue" onclick="toggleLight('blues')">Blues</button>
+    <button class="btn white" onclick="toggleLight('front')">Front Whites</button>
+    <button class="btn orange" onclick="toggleDoor('front')">Front Door</button>
+    <button class="btn orange" onclick="toggleDoor('tailgate')">Tailgate</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
