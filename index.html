@@ -9,14 +9,12 @@
 </head>
 <body>
   <div class="panel">
-    <button class="btn red" onclick="startLoop('landhorn')">Landhorn AN</button>
-    <button class="btn red" onclick="startLoop('stadthorn')">Stadthorn AN</button>
-    <button class="btn orange" onclick="stopLoop()">AUS</button>
-    <button class="btn blue" onclick="playSound('sirene')">Blitzlicht - Mode 1</button>
-    <button class="btn blue" onclick="toggleLight('blues')">Blitzlicht - Mode 2</button>
-    <button class="btn white" onclick="toggleLight('front')">Funk - Ein</button>
-    <button class="btn orange" onclick="toggleDoor('front')">Funk - Aus</button>
-    <button class="btn red2" onclick="toggleDoor('tailgate')">Notruf</button>
+    <button class="btn blue"><span>🔊</span><p>Landhorn</p></button>
+    <button class="btn blue"><span>📢</span><p>Stadthorn</p></button>
+    <button class="btn cyan"><span>🚨</span><p>Sirene</p></button>
+    <button class="btn white"><span>💡</span><p>Frontlicht</p></button>
+    <button class="btn orange"><span>🚪</span><p>Tür</p></button>
+    <button class="btn red"><span>⛔</span><p>Stop</p></button>
   </div>
 
   <script src="app.js"></script>
