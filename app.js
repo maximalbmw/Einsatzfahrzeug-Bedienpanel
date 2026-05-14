@@ -2,7 +2,6 @@
 // Audio Unlock (Pflicht für Handy)
 // ------------------------------
 let audioUnlocked = false;
-
 document.addEventListener(
   "pointerdown",
   () => {
@@ -31,15 +30,21 @@ function playLoop(name) {
     currentAudio.currentTime = 0;
   }
 
+  // Neue Audio-Datei laden
   currentAudio = new Audio(file);
   currentAudio.loop = true;
+
+  // Lautstärke optional anpassen
+  currentAudio.volume = 1.0;
 
   currentAudio
     .play()
     .then(() => console.log("Läuft:", file))
     .catch((err) => {
       console.error("Fehler:", err);
-      alert("Sound konnte nicht gestartet werden. Tippe einmal auf die Seite und versuche es erneut.");
+      alert(
+        "Sound konnte nicht gestartet werden. Tippe einmal auf die Seite und versuche es erneut."
+      );
     });
 }
 
