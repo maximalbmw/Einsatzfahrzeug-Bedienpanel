@@ -1,50 +1,50 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #111;
+  background: radial-gradient(circle at center, #0d0d10 0%, #000 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .panel {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* kleinere Buttons */
-  gap: 10px;
-  background: #222;
-  padding: 20px;
-  border-radius: 15px;
-  width: 95vw;
-  max-width: 500px; /* Panel insgesamt kleiner */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  width: 90vw;
+  max-width: 420px;
 }
 
 .btn {
-  font-size: clamp(12px, 3vw, 18px); /* NIE zu groß */
-  line-height: 1.1;
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-/*.btn {
-  height: 18vw;
-  max-height: 120px;
-  min-height: 70px;
-  border: none;
-  border-radius: 12px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 5px #000;
-  cursor: pointer;
-  transition: 0.2s;
-  font-size: clamp(14px, 3.5vw, 22px);
-}*/
+.btn span {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
 
-.btn.red { background: #b30000; box-shadow: 0 0 15px #ff0000; }
-.btn.blue { background: #0033cc; box-shadow: 0 0 15px #00aaff; }
-.btn.white { background: #cccccc; box-shadow: 0 0 15px #ffffff; color: #000; }
-.btn.orange { background: #cc6600; box-shadow: 0 0 15px #ff9900; }
-.btn.red2 { background: #ff1100; box-shadow: 0 0 15px #d43131; }
+.btn p {
+  margin: 0;
+  font-size: 15px;
+  opacity: 0.9;
+}
 
 .btn:active {
   transform: scale(0.95);
-  box-shadow: 0 0 25px #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
+
+/* Farben */
+.btn.blue { background: linear-gradient(145deg, #003b8e, #0055cc); }
+.btn.cyan { background: linear-gradient(145deg, #007b9e, #00bcd4); }
+.btn.white { background: linear-gradient(145deg, #d0d0d0, #f0f0f0); color: #000; }
+.btn.orange { background: linear-gradient(145deg, #c76a00, #ff9800); }
+.btn.red { background: linear-gradient(145deg, #8e0000, #d50000); }
+.btn.red2 { background: linear-gradient(145deg, #cc3e3e, #d50000); }
