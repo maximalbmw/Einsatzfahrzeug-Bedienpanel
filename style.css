@@ -18,11 +18,11 @@ body {
 }
 
 .btn {
-  height: 100px; /* feste Höhe für alle Buttons */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 .btn span {
