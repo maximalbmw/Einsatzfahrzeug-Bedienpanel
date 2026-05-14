@@ -1,10 +1,10 @@
-// Globale Variable für aktuell spielenden Sound
-let currentAudio = null;
+// ------------------------------
+// Audio Unlock (Pflicht für Handy)
+// ------------------------------
 let audioUnlocked = false;
 
-// Audio einmalig "freischalten" (wichtig für Handy-Browser)
 document.addEventListener(
-  "click",
+  "pointerdown",
   () => {
     if (audioUnlocked) return;
     const a = new Audio();
@@ -15,48 +15,38 @@ document.addEventListener(
   { once: true }
 );
 
-// Hilfsfunktion: Sound starten (Endlosschleife)
-function startLoop(id) {
-  // Falls schon etwas läuft → stoppen
+// ------------------------------
+// Sound-System
+// ------------------------------
+let currentAudio = null;
+
+function playLoop(name) {
+  const file = `sounds/${name}.mp3`;
+
+  console.log("Starte:", file);
+
+  // Falls bereits etwas läuft → stoppen
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
-    currentAudio = null;
   }
 
-  // Neue Audio-Datei laden
-  const src = `sounds/${id}.mp3`;
-  console.log("Starte Sound:", src);
-
-  currentAudio = new Audio(src);
+  currentAudio = new Audio(file);
   currentAudio.loop = true;
 
   currentAudio
     .play()
-    .then(() => {
-      console.log("Sound läuft:", src);
-    })
+    .then(() => console.log("Läuft:", file))
     .catch((err) => {
-      console.error("Konnte Sound nicht abspielen:", err);
-      alert(
-        "Sound konnte nicht gestartet werden. Tippe einmal irgendwo auf die Seite und versuche es erneut."
-      );
+      console.error("Fehler:", err);
+      alert("Sound konnte nicht gestartet werden. Tippe einmal auf die Seite und versuche es erneut.");
     });
 }
 
-// Sound stoppen
-function stopLoop() {
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.currentTime = 0;
-    console.log("Sound gestoppt");
-    currentAudio = null;
-  }
-}
-
-// Beispiel: weitere Funktionen (falls du sie nutzt)
-function toggleLight(id) {
-  const btn = event.currentTarget;
-  btn.classList.toggle("active");
-  console.log("Light toggle:", id);
+function stopSound() {
+  if (!currentAudio) return;
+  currentAudio.pause();
+  currentAudio.currentTime = 0;
+  currentAudio = null;
+  console.log("Sound gestoppt");
 }
