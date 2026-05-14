@@ -1,24 +1,31 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>Einsatzfahrzeug Panel</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="favicon.png">
+<div class="panel">
+  <button class="btn blue" onclick="startLoop('landhorn')">
+    <span class="icon">🔊</span>
+    <span class="label">Landhorn</span>
+  </button>
 
-</head>
-<body>
-  <div class="panel">
-    <button class="btn red" onclick="startLoop('landhorn')">Landhorn AN</button>
-    <button class="btn red" onclick="startLoop('stadthorn')">Stadthorn AN</button>
-    <button class="btn orange" onclick="stopLoop()">AUS</button>
-    <button class="btn blue" onclick="playSound('sirene')">Sirene</button>
-    <button class="btn blue" onclick="toggleLight('blues')">Blues</button>
-    <button class="btn white" onclick="toggleLight('front')">Front Whites</button>
-    <button class="btn orange" onclick="toggleDoor('front')">Front Door</button>
-    <button class="btn orange" onclick="toggleDoor('tailgate')">Tailgate</button>
-  </div>
+  <button class="btn blue" onclick="startLoop('stadthorn')">
+    <span class="icon">📢</span>
+    <span class="label">Stadthorn</span>
+  </button>
 
-  <script src="app.js"></script>
-</body>
-</html>
+  <button class="btn cyan" onclick="startLoop('sirene')">
+    <span class="icon">🚨</span>
+    <span class="label">Sirene</span>
+  </button>
+
+  <button class="btn white" onclick="toggleLight('front')">
+    <span class="icon">💡</span>
+    <span class="label">Frontlicht</span>
+  </button>
+
+  <button class="btn orange" onclick="toggleDoor('front')">
+    <span class="icon">🚪</span>
+    <span class="label">Tür</span>
+  </button>
+
+  <button class="btn red" onclick="stopLoop()">
+    <span class="icon">⛔</span>
+    <span class="label">Stop</span>
+  </button>
+</div>
