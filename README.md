@@ -1,5 +1,5 @@
 # Einsatzfahrzeug-Bedienpanel
-Dieses Einsatzfahrzeug-Bedienpanel der Polizei ist *ausschließlich* für Film -und Privatzwecke konzipiert! Verwendung erfordert die Genehmigung von maximalbmw (info@nexa-it-services.com). Bei Missbrauch dieser Dtaenbank übernehme ich keinerlei Verantwortung!
+Dieses Einsatzfahrzeug-Bedienpanel der Polizei ist *ausschließlich* für Film -und Privatzwecke konzipiert! Verwendung erfordert die Genehmigung von maximalbmw (info@nexa-it-services.com). Bei Missbrauch dieses Einsatzfahrzeug-Bedienpanels übernehme ich keinerlei Verantwortung!
 
 ## Zugriff auf Einsatzfahrzeug-Bedienpanel
 https://maximalbmw.github.io/Einsatzfahrzeug-Bedienpanel/
