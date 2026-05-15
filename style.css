@@ -154,6 +154,14 @@ body {
   box-shadow: 0 2px 25px rgba(198, 40, 40, 0.5);
 }
 
+.btn.bluelight {
+  background: linear-gradient(145deg, #0d47a1, #2979ff);
+  box-shadow: 0 4px 15px rgba(41, 121, 255, 0.3);
+}
+.btn.bluelight:active {
+  box-shadow: 0 2px 25px rgba(41, 121, 255, 0.5);
+}
+
 .btn.emergency {
   background: linear-gradient(145deg, #b71c1c, #e53935);
   box-shadow: 0 4px 20px rgba(229, 57, 53, 0.4);
