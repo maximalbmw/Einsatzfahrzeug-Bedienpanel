@@ -79,3 +79,18 @@ function stopSound() {
   setActive(null);
   console.log("Sound gestoppt");
 }
+
+
+// --------------------------------------
+// 3) Blaulicht-Overlay
+// --------------------------------------
+function startBlaulicht(mode) {
+  const overlay = document.getElementById('blaulicht-overlay');
+  overlay.classList.remove('mode1', 'mode2');
+  overlay.classList.add('active', mode === 2 ? 'mode2' : 'mode1');
+}
+
+function stopBlaulicht() {
+  const overlay = document.getElementById('blaulicht-overlay');
+  overlay.classList.remove('active', 'mode1', 'mode2');
+}

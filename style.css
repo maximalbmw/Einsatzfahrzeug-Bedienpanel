@@ -177,6 +177,63 @@ body {
   background: rgba(229, 57, 53, 0.04);
 }
 
+/* ===== Blaulicht Overlay ===== */
+.blaulicht-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.blaulicht-overlay.active {
+  display: flex;
+}
+
+.blaulicht-overlay.mode1 {
+  animation: flash-mode1 0.8s infinite;
+}
+
+.blaulicht-overlay.mode2 {
+  animation: flash-mode2 1.2s infinite;
+}
+
+@keyframes flash-mode1 {
+  0%, 49% { background: #003cff; }
+  50%, 100% { background: #000; }
+}
+
+@keyframes flash-mode2 {
+  0%, 10% { background: #003cff; }
+  11%, 20% { background: #000; }
+  21%, 30% { background: #003cff; }
+  31%, 100% { background: #000; }
+}
+
+.btn-off {
+  padding: 18px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(145deg, #7a1a1a, #c62828);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(198, 40, 40, 0.5);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  z-index: 101;
+}
+
+.btn-off:active {
+  transform: scale(0.94);
+  box-shadow: 0 2px 30px rgba(198, 40, 40, 0.7);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 360px) {
   .panel {

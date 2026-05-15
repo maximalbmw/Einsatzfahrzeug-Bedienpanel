@@ -41,11 +41,11 @@
           <span class="btn-icon">💡</span>
           <span class="btn-label">Blitz Mode 2</span>
         </button>
-        <button class="btn bluelight" id="btn-blaulicht1" onclick="window.location.href='blaulicht.html?mode=1'">
+        <button class="btn bluelight" id="btn-blaulicht1" onclick="startBlaulicht(1)">
           <span class="btn-icon">🔵</span>
           <span class="btn-label">Blaulicht Mode 1</span>
         </button>
-        <button class="btn bluelight" id="btn-blaulicht2" onclick="window.location.href='blaulicht.html?mode=2'">
+        <button class="btn bluelight" id="btn-blaulicht2" onclick="startBlaulicht(2)">
           <span class="btn-icon">🔵</span>
           <span class="btn-label">Blaulicht Mode 2</span>
         </button>
@@ -67,6 +67,11 @@
       </div>
     </section>
 
+  </div>
+
+  <!-- Blaulicht Fullscreen Overlay -->
+  <div class="blaulicht-overlay" id="blaulicht-overlay">
+    <button class="btn-off" onclick="stopBlaulicht()">🔇 Ausschalten</button>
   </div>
 
   <script src="app.js"></script>
