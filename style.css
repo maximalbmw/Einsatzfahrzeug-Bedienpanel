@@ -163,8 +163,9 @@ body {
 }
 
 .btn.orange {
-  background: linear-gradient(145deg, #c76a00, #ff9800);
+  background: linear-gradient(145deg, #c76a00, #ff9800) !important;
   box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+  color: #fff;
 }
 .btn.orange:active {
   box-shadow: 0 2px 25px rgba(255, 152, 0, 0.5);
@@ -188,20 +189,20 @@ body {
 /* ===== Blaulicht Overlay ===== */
 .blaulicht-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 40px;
-  pointer-events: none;
-  visibility: hidden;
   background: #000;
 }
 
 .blaulicht-overlay.active {
-  visibility: visible;
-  pointer-events: auto;
+  display: flex;
 }
 
 .blaulicht-overlay.active.mode1 {
@@ -249,22 +250,22 @@ body {
 /* ===== Anhalte-Signal Overlay ===== */
 .anhalte-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 40px;
   padding-bottom: 40px;
-  pointer-events: none;
-  visibility: hidden;
   background: #000;
 }
 
 .anhalte-overlay.active {
-  visibility: visible;
-  pointer-events: auto;
+  display: flex;
   animation: anhalte-flash 1.5s infinite;
 }
 

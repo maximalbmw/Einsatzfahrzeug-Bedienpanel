@@ -86,9 +86,9 @@ function stopSound() {
 // --------------------------------------
 function startBlaulicht(mode) {
   const overlay = document.getElementById('blaulicht-overlay');
-  // Reset: alle Klassen entfernen und Animation neu starten
   overlay.classList.remove('active', 'mode1', 'mode2');
-  // Reflow erzwingen damit die Animation sauber neu startet
+  overlay.style.display = 'flex';
+  // Reflow erzwingen
   void overlay.offsetWidth;
   overlay.classList.add('active', mode === 2 ? 'mode2' : 'mode1');
 }
@@ -96,6 +96,7 @@ function startBlaulicht(mode) {
 function stopBlaulicht() {
   const overlay = document.getElementById('blaulicht-overlay');
   overlay.classList.remove('active', 'mode1', 'mode2');
+  overlay.style.display = 'none';
 }
 
 
@@ -105,6 +106,7 @@ function stopBlaulicht() {
 function startAnhalteSignal() {
   const overlay = document.getElementById('anhalte-overlay');
   overlay.classList.remove('active');
+  overlay.style.display = 'flex';
   void overlay.offsetWidth;
   overlay.classList.add('active');
 }
@@ -112,4 +114,5 @@ function startAnhalteSignal() {
 function stopAnhalteSignal() {
   const overlay = document.getElementById('anhalte-overlay');
   overlay.classList.remove('active');
+  overlay.style.display = 'none';
 }
