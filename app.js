@@ -97,3 +97,19 @@ function stopBlaulicht() {
   const overlay = document.getElementById('blaulicht-overlay');
   overlay.classList.remove('active', 'mode1', 'mode2');
 }
+
+
+// --------------------------------------
+// 4) Anhalte-Signal Overlay
+// --------------------------------------
+function startAnhalteSignal() {
+  const overlay = document.getElementById('anhalte-overlay');
+  overlay.classList.remove('active');
+  void overlay.offsetWidth;
+  overlay.classList.add('active');
+}
+
+function stopAnhalteSignal() {
+  const overlay = document.getElementById('anhalte-overlay');
+  overlay.classList.remove('active');
+}

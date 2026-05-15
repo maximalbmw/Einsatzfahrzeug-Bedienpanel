@@ -56,6 +56,17 @@
       </div>
     </section>
 
+    <!-- Anhalte-Sektion -->
+    <section class="section">
+      <h2 class="section-title">🛑 Anhalte-Signal</h2>
+      <div class="button-group">
+        <button class="btn orange" id="btn-stop-polizei" onclick="startAnhalteSignal()">
+          <span class="btn-icon">🚔</span>
+          <span class="btn-label">STOP POLIZEI</span>
+        </button>
+      </div>
+    </section>
+
     <!-- Notruf-Sektion -->
     <section class="section section-emergency">
       <h2 class="section-title">🚨 Notruf</h2>
@@ -72,6 +83,12 @@
   <!-- Blaulicht Fullscreen Overlay -->
   <div class="blaulicht-overlay" id="blaulicht-overlay">
     <button class="btn-off" onclick="stopBlaulicht()">🔇 Ausschalten</button>
+  </div>
+
+  <!-- Anhalte-Signal Fullscreen Overlay -->
+  <div class="anhalte-overlay" id="anhalte-overlay">
+    <div class="anhalte-text">STOP POLIZEI</div>
+    <button class="btn-off" onclick="stopAnhalteSignal()">❌ Ausschalten</button>
   </div>
 
   <script src="app.js"></script>
