@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Blaulicht</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Blaulicht-Fullscreen-Effekt */
+    .blaulicht-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* Mode 1: Gleichmäßiges Blinken */
+    .blaulicht-overlay.mode1 {
+      animation: flash-mode1 0.8s infinite;
+    }
+
+    @keyframes flash-mode1 {
+      0%, 49% { background: #003cff; }
+      50%, 100% { background: #000; }
+    }
+
+    /* Mode 2: Schnelles Doppelblinken */
+    .blaulicht-overlay.mode2 {
+      animation: flash-mode2 1.2s infinite;
+    }
+
+    @keyframes flash-mode2 {
+      0%, 10% { background: #003cff; }
+      11%, 20% { background: #000; }
+      21%, 30% { background: #003cff; }
+      31%, 100% { background: #000; }
+    }
+
+    /* Ausschalten-Button */
+    .btn-off {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      padding: 18px 40px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(145deg, #7a1a1a, #c62828);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(198, 40, 40, 0.5);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .btn-off:active {
+      transform: translateX(-50%) scale(0.94);
+      box-shadow: 0 2px 30px rgba(198, 40, 40, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="blaulicht-overlay" id="overlay"></div>
+  <button class="btn-off" onclick="window.location.href='index.html'">🔇 Ausschalten</button>
+
+  <script>
+    // Mode aus URL-Parameter lesen
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode') || '1';
+
+    const overlay = document.getElementById('overlay');
+    overlay.classList.add(mode === '2' ? 'mode2' : 'mode1');
+  </script>
+</body>
+</html>
