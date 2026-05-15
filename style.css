@@ -1,54 +1,197 @@
-body {
+/* ===== Reset & Base ===== */
+* {
   margin: 0;
   padding: 0;
-  background: #0d0d0f;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(ellipse at top, #0f1923 0%, #070b0f 100%);
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-family: 'Segoe UI', sans-serif;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 24px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
+/* ===== Panel Container ===== */
 .panel {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== Sections (Glasmorphism) ===== */
+.section {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.section-title {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 14px;
+  padding-left: 4px;
+}
+
+/* ===== Button Group Grid ===== */
+.button-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  width: 90vw;
-  max-width: 420px;
+  gap: 12px;
 }
 
+/* Einzelner Button in voller Breite wenn ungerade Anzahl */
+.button-group .btn:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+/* ===== Buttons ===== */
 .btn {
-  background: #1a1a1f;
-  border: none;
-  border-radius: 16px;
-  padding: 18px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 0 12px rgba(0,0,0,0.4);
-  transition: 0.15s;
+  gap: 6px;
+  padding: 22px 16px;
+  min-height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  cursor: pointer;
+  color: #fff;
+  font-family: inherit;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
 }
 
-.btn .icon {
-  font-size: 32px;
-  margin-bottom: 6px;
+/* Licht-Overlay für Glaseffekt */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-.btn .label {
-  font-size: 15px;
+.btn-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.btn-label {
+  font-size: 13px;
+  font-weight: 600;
   opacity: 0.9;
+  letter-spacing: 0.3px;
 }
 
+/* ===== Button States ===== */
 .btn:active {
-  transform: scale(0.95);
-  box-shadow: 0 0 18px rgba(255,255,255,0.3);
+  transform: scale(0.94);
 }
 
-/* Farben */
-.btn.blue { background: #003b8e; }
-.btn.cyan { background: #007b9e; }
-.btn.white { background: #d0d0d0; color: #000; }
-.btn.orange { background: #c76a00; }
-.btn.red { background: #8e0000; }
+.btn.active {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), inset 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+/* Grüner Puls-Indikator bei aktivem Button */
+.btn.active::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4cff88;
+  box-shadow: 0 0 6px #4cff88;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ===== Farbvarianten ===== */
+.btn.blue {
+  background: linear-gradient(145deg, #0a3d7a, #1565c0);
+  box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+}
+.btn.blue:active {
+  box-shadow: 0 2px 25px rgba(21, 101, 192, 0.5);
+}
+
+.btn.cyan {
+  background: linear-gradient(145deg, #006978, #00acc1);
+  box-shadow: 0 4px 15px rgba(0, 172, 193, 0.3);
+}
+.btn.cyan:active {
+  box-shadow: 0 2px 25px rgba(0, 172, 193, 0.5);
+}
+
+.btn.red {
+  background: linear-gradient(145deg, #7a1a1a, #c62828);
+  box-shadow: 0 4px 15px rgba(198, 40, 40, 0.3);
+}
+.btn.red:active {
+  box-shadow: 0 2px 25px rgba(198, 40, 40, 0.5);
+}
+
+.btn.emergency {
+  background: linear-gradient(145deg, #b71c1c, #e53935);
+  box-shadow: 0 4px 20px rgba(229, 57, 53, 0.4);
+  min-height: 70px;
+}
+.btn.emergency:active {
+  box-shadow: 0 2px 30px rgba(229, 57, 53, 0.7);
+}
+
+/* ===== Notruf-Sektion Highlight ===== */
+.section-emergency {
+  border-color: rgba(229, 57, 53, 0.2);
+  background: rgba(229, 57, 53, 0.04);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 360px) {
+  .panel {
+    gap: 18px;
+  }
+  .section {
+    padding: 16px;
+  }
+  .btn {
+    padding: 18px 12px;
+    min-height: 70px;
+  }
+  .btn-icon {
+    font-size: 24px;
+  }
+  .btn-label {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 500px) {
+  body {
+    align-items: center;
+    padding: 32px;
+  }
+}

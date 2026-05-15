@@ -1,25 +1,81 @@
+// --------------------------------------
+// 1) Audio auf Handy freischalten
+// --------------------------------------
+let audioUnlocked = false;
+
+function unlockAudio() {
+  if (audioUnlocked) return;
+  const a = new Audio();
+  a.play().catch(() => {});
+  audioUnlocked = true;
+  console.log("Audio freigeschaltet");
+}
+
+document.addEventListener("pointerdown", unlockAudio, { once: true });
+document.addEventListener("touchstart", unlockAudio, { once: true });
+
+
+// --------------------------------------
+// 2) Sound-System mit Status-Indikatoren
+// --------------------------------------
 let currentAudio = null;
+let activeButton = null;
 
-function startLoop(id) {
+function setActive(buttonId) {
+  // Vorherigen aktiven Button zurücksetzen
+  if (activeButton) {
+    activeButton.classList.remove('active');
+  }
+  if (buttonId) {
+    const btn = document.getElementById(buttonId);
+    if (btn) {
+      btn.classList.add('active');
+      activeButton = btn;
+    }
+  } else {
+    activeButton = null;
+  }
+}
+
+function playLoop(name) {
+  const file = `${window.location.origin}/Einsatzfahrzeug-Bedienpanel/sounds/${name}.mp3`;
+
+  console.log("Versuche zu starten:", file);
+
+  // Falls bereits etwas läuft → stoppen
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
   }
 
-  currentAudio = new Audio(`sounds/${id}.mp3`);
+  currentAudio = new Audio(file);
   currentAudio.loop = true;
-  currentAudio.play();
+  currentAudio.volume = 1.0;
+
+  // Fehler sichtbar machen
+  currentAudio.onerror = () => {
+    console.error("Sound konnte nicht geladen werden:", file);
+    setActive(null);
+    alert(`Die Datei existiert nicht oder kann nicht geladen werden:\n${file}`);
+  };
+
+  currentAudio
+    .play()
+    .then(() => {
+      console.log("Sound läuft:", name);
+      setActive(`btn-${name}`);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abspielen:", err);
+      alert("Audio wurde blockiert. Tippe einmal auf die Seite und versuche es erneut.");
+    });
 }
 
-function stopLoop() {
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.currentTime = 0;
-    currentAudio = null;
-  }
-}
-
-function toggleLight(id) {
-  const btn = event.currentTarget;
-  btn.classList.toggle("active");
+function stopSound() {
+  if (!currentAudio) return;
+  currentAudio.pause();
+  currentAudio.currentTime = 0;
+  currentAudio = null;
+  setActive(null);
+  console.log("Sound gestoppt");
 }
