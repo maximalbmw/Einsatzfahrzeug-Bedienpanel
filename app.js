@@ -104,15 +104,11 @@ function stopBlaulicht() {
 // 4) Anhalte-Signal Overlay
 // --------------------------------------
 function startAnhalteSignal() {
-  const overlay = document.getElementById('anhalte-overlay');
-  overlay.classList.remove('active');
+  var overlay = document.getElementById('anhalte-overlay');
   overlay.style.display = 'flex';
-  void overlay.offsetWidth;
-  overlay.classList.add('active');
 }
 
 function stopAnhalteSignal() {
-  const overlay = document.getElementById('anhalte-overlay');
-  overlay.classList.remove('active');
+  var overlay = document.getElementById('anhalte-overlay');
   overlay.style.display = 'none';
 }
