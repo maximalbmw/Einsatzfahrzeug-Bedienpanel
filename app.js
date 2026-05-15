@@ -86,7 +86,10 @@ function stopSound() {
 // --------------------------------------
 function startBlaulicht(mode) {
   const overlay = document.getElementById('blaulicht-overlay');
-  overlay.classList.remove('mode1', 'mode2');
+  // Reset: alle Klassen entfernen und Animation neu starten
+  overlay.classList.remove('active', 'mode1', 'mode2');
+  // Reflow erzwingen damit die Animation sauber neu startet
+  void overlay.offsetWidth;
   overlay.classList.add('active', mode === 2 ? 'mode2' : 'mode1');
 }
 

@@ -182,21 +182,25 @@ body {
   position: fixed;
   inset: 0;
   z-index: 100;
-  display: none;
+  display: flex;
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 40px;
+  pointer-events: none;
+  visibility: hidden;
+  background: #000;
 }
 
 .blaulicht-overlay.active {
-  display: flex;
+  visibility: visible;
+  pointer-events: auto;
 }
 
-.blaulicht-overlay.mode1 {
+.blaulicht-overlay.active.mode1 {
   animation: flash-mode1 0.8s infinite;
 }
 
-.blaulicht-overlay.mode2 {
+.blaulicht-overlay.active.mode2 {
   animation: flash-mode2 1.2s infinite;
 }
 
